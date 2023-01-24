@@ -1,0 +1,14 @@
+image: pandoc/latex
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - pandoc input.md -o output.pdf
+  artifacts:
+    paths:
+      - output.pdf
+  only:
+    - master
