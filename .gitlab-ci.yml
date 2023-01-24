@@ -11,4 +11,4 @@ build:
     paths:
       - output.pdf
   only:
-    - master
+    - main
