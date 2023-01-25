@@ -1,16 +1,17 @@
-image: pandoc/latex
+default:
+  image: pandoc/latex
+  before_script:
+    - echo "install dependencies"
+    - apt-get update
+    - apt-get install pandoc-citeproc 
+    - apt-get install lmodern 
+    - apt-get install msttcorefonts 
 
 stages:
   - build
 
 build:
   stage: build
-  before_script:
-    - apt-get update
-    - apt-get install pandoc-citeproc 
-    - apt-get install lmodern 
-    - apt-get install msttcorefonts 
-
   script:
     - >
       pandoc ./source/02_einleitung.md
