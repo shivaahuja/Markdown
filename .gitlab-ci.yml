@@ -7,7 +7,7 @@ default:
     - apt-get update
     - apt-get -y install pandoc-citeproc 
     - apt-get -y install lmodern 
-    - apt-get -y install msttcorefonts 
+    #- apt-get -y install msttcorefonts 
 
 stages:
   - build
