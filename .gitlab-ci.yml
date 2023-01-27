@@ -1,13 +1,12 @@
 default:
   image: 
-    name: pandoc/latex:latest-ubuntu
+    name: FROM blang/latex:ubuntu
     entrypoint: [""]
   before_script:
     - echo "install dependencies"
     - apt-get update
     - apt-get -y install pandoc-citeproc 
     - apt-get -y install lmodern 
-    - apt-get update && apt-get install -y --no-install-recommends texlive-full
     #- apt-get -y install msttcorefonts 
 
 stages:
