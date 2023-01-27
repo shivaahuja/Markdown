@@ -19,7 +19,11 @@ build:
     - >
       pandoc ./source/*.md
       -o dokumntation.pdf
-      --template=./style/template.tex
+      --include-before=./source/00_titlepage.tex
+      --include-after=./source/98_appendix.tex
+      --bibliography=./source/references.bib 2>pandoc.log
+      --include-after-body=./source/99_eidesstaatliche.tex
+      --csl=./style/updated-deutsche-gesellschaft-fur-psychologie.csl
       --pdf-engine=xelatex
   artifacts:
     paths:
