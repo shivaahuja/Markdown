@@ -7,7 +7,7 @@ default:
     - apt-get update
     - apt-get -y install pandoc-citeproc 
     - apt-get -y install lmodern 
-    - apt-get install -y fonts-liberation
+    - apt-get -y install fonts-liberation
     #- apt-get -y install msttcorefonts 
 
 stages:
@@ -19,24 +19,6 @@ build:
     - >
       pandoc ./source/*.md
       -o dokumntation.pdf
-      -H ./style/preamble.tex
-      --template=./style/template.tex
-      --include-before=./source/00_titlepage.tex
-      --include-after=./source/98_appendix.tex
-      --bibliography=./source/references.bib 2>pandoc.log
-      --include-after-body=./source/99_eidesstaatliche.tex
-      --csl=./style/updated-deutsche-gesellschaft-fur-psychologie.csl
-      --highlight-style=pygments
-      --listings
-      --metadata link-citations=true
-      -V lang=de-DE
-      -V papersize=A4
-      -V fontsize=12pt
-      -V mainfont=LiberationSerif
-      -V sansfont=LiberationSans
-      -V monofont=LiberationMono
-      -V linestretch=1.5
-      -N
       --pdf-engine=xelatex
   artifacts:
     paths:
