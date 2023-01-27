@@ -21,7 +21,6 @@ build:
       pandoc ./source/*.md
       -o dokumentation.pdf
       -H ./style/preamble.tex
-      --template=./style/template.tex
       --include-before=./source/00_titlepage.tex
       --include-after=./source/98_appendix.tex
       --bibliography=./source/references.bib 2>pandoc.log
