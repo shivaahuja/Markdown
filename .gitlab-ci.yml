@@ -9,6 +9,7 @@ default:
     - apt-get -y install lmodern 
     - apt-get -y install fonts-liberation
     - apt-get -y install texlive-latex-base
+    - apt-get -y install texlive-latex-recommended
     #- apt-get -y install msttcorefonts 
 
 stages:
