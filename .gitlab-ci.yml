@@ -19,6 +19,7 @@ build:
     - >
       pandoc ./source/*.md
       -o dokumntation.pdf
+      --template=./style/template.tex
       --pdf-engine=xelatex
   artifacts:
     paths:
