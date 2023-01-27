@@ -1,7 +1,7 @@
 default:
   image: 
     name: pandoc/latex
-    entrypoint: ["/bin/bash"]
+    entrypoint: [""]
   before_script:
     - echo "install dependencies"
     - apt-get update
