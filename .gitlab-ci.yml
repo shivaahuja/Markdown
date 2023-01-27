@@ -18,7 +18,8 @@ build:
   script:
     - >
       pandoc ./source/*.md
-      -o dokumntation.pdf
+      -o dokumentation.pdf
+      -H ./style/preamble.tex
       --include-before=./source/00_titlepage.tex
       --include-after=./source/98_appendix.tex
       --bibliography=./source/references.bib 2>pandoc.log
@@ -38,6 +39,6 @@ build:
       --pdf-engine=xelatex
   artifacts:
     paths:
-      - dokumntation.pdf
+      - dokumentation.pdf
   only:
     - main
