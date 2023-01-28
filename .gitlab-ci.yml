@@ -5,9 +5,14 @@ default:
   before_script:
     - echo "install dependencies"
     - apt-get update
-    - apt-get -y install pandoc-citeproc 
-    - apt-get -y install lmodern 
-    #- apt-get -y install msttcorefonts 
+    - dpkg -i ./bin/pandoc-3.0.1-1-amd64.deb
+    - apt-get install -f
+    - apt-get -y install pandoc-citeproc
+    - apt-get -y install texlive-xetex
+    - apt-get -y install lmodern
+    - apt-get -y install fonts-liberation
+    - apt-get -y install texlive-lang-german
+    - apt-get -y install texlive-latex-extra
 
 stages:
   - build
@@ -16,14 +21,14 @@ build:
   stage: build
   script:
     - >
-      pandoc ./source/*.md
-      -o dokumentation.pdf
+      pandoc -s ./source/*.md
       -H ./style/preamble.tex
+      --template=./style/template.tex
       --include-before=./source/00_titlepage.tex
       --include-after=./source/98_appendix.tex
-      --bibliography=./source/references.bib 2>pandoc.log
-      --include-after-body=./source/99_eidesstaatliche.tex
+      --bibliography=./source/references.bib
       --csl=./style/updated-deutsche-gesellschaft-fur-psychologie.csl
+      --include-after-body=./source/99_eidesstaatliche.tex
       --highlight-style=pygments
       --listings
       --metadata link-citations=true
@@ -35,6 +40,7 @@ build:
       -V monofont=LiberationMono
       -V linestretch=1.5
       -N
+      -o dokumentation.pdf
       --pdf-engine=xelatex
   artifacts:
     paths:
