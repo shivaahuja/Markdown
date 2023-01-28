@@ -1,0 +1,35 @@
+version: '3'
+services:
+  latex:
+    build:
+      context: ./bin
+    container_name: "PandocConverter"
+    # restart: "always"
+    volumes:
+      - "./${INPUTDIR}:/data/${INPUTDIR}"
+      - "./${STYLEDIR}:/data/${STYLEDIR}"
+      - "./${OUTPUTDIR}:/data/${OUTPUTDIR}"
+    command: >
+      sh -c "pandoc -s /data/${INPUTDIR}/*.md
+      -H /data/${STYLEDIR}/preamble.tex
+      --template=/data/${STYLEDIR}/template.tex
+      --include-before=/data/${INPUTDIR}/00_titlepage.tex
+      --include-after=/data/${INPUTDIR}/98_appendix.tex
+      --bibliography=/data/${INPUTDIR}/${BIBFILE}
+      --csl=/data/${STYLEDIR}/updated-deutsche-gesellschaft-fur-psychologie.csl
+	  --include-after-body=/data/${INPUTDIR}/99_eidesstaatliche.tex
+      --highlight-style=pygments
+      --listings
+      --metadata link-citations=true
+      -V lang=de-DE
+      -V papersize=A4
+      -V fontsize=12pt
+      -V mainfont=LiberationSerif
+      -V sansfont=LiberationSans
+      -V monofont=LiberationMono
+      -V linestretch=1.5
+      -N
+      -o /data/${OUTPUTDIR}/${OUTPUTFILE}
+      --pdf-engine=xelatex"
+# command: sh -c "pandoc -s /data/input/*.md -o /data/output/output.pdf && tail -f /dev/null"
+
