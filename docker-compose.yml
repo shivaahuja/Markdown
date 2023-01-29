@@ -17,7 +17,7 @@ services:
       --include-after=/data/${INPUTDIR}/98_appendix.tex
       --bibliography=/data/${INPUTDIR}/${BIBFILE}
       --csl=/data/${STYLEDIR}/updated-deutsche-gesellschaft-fur-psychologie.csl
-	  --include-after-body=/data/${INPUTDIR}/99_eidesstaatliche.tex
+      --include-after-body=/data/${INPUTDIR}/99_eidesstaatliche.tex
       --highlight-style=pygments
       --listings
       --metadata link-citations=true
