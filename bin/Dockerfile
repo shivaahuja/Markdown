@@ -6,6 +6,7 @@ RUN apt-get update && \
     apt-get -y install pandoc-citeproc && \
     apt-get -y install texlive-xetex && \
     apt-get -y install lmodern && \
-    apt-get -y install fonts-liberation && \
-    apt-get -y install texlive-lang-german && \
-    apt-get -y install texlive-latex-extra 
+    apt-get -y install fonts-liberation
+    
+#    apt-get -y install texlive-lang-german && \
+#    apt-get -y install texlive-latex-extra 
