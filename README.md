@@ -24,6 +24,11 @@ sudo apt-get install lmodern
 sudo apt-get install msttcorefonts
 ```
 
+**Zotero**
+* [Zotero-Website](https://www.zotero.org)
+* [Better BibTex](https://retorque.re/zotero-better-bibtex/)
+
+
 ## Hilfestellung für die Markdownsyntax   
 <http://daringfireball.net/projects/markdown/syntax#img>  
 <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>  
