@@ -12,6 +12,15 @@
 * Element 2
 * Element 3
 
+## Code
+
+```html
+<html>
+  <head>
+  </head>
+</html>
+```
+
 ## Zitate
 Einzel Zitat:  
 [vgl. @leeb_einfuhrung_2016, S. 13]
